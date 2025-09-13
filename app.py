@@ -5,6 +5,20 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 
 # ---------------------------
+# Header image
+# ---------------------------
+st.image(
+    "https://i.ytimg.com/vi/u2bg8OwB4Z0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&amp;rs=AOn4CLCqhObtNshXtK9_YbOZSWYuJ2lNUQ",
+    use_column_width=True
+)
+
+# ---------------------------
+# Title and description
+# ---------------------------
+st.title("Potato Leaf Disease Classifier")
+st.write("Upload an image of a potato leaf to predict its disease")
+
+# ---------------------------
 # Load the model
 # ---------------------------
 with open("model/potato_model.pkl", "rb") as f:
@@ -14,11 +28,8 @@ with open("model/potato_model.pkl", "rb") as f:
 class_names = ['Early_blight', 'Late_blight', 'healthy']
 
 # ---------------------------
-# Streamlit UI
+# Image uploader and inference
 # ---------------------------
-st.title("Potato Leaf Disease Classifier")
-st.write("Upload an image of a potato leaf to predict its disease")
-
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg","jpeg","png"])
 
 if uploaded_file is not None:
