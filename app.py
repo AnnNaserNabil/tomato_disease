@@ -5,11 +5,16 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 
 # ---------------------------
+# Hide deprecation warnings
+# ---------------------------
+st.set_option('deprecation.showfileUploaderEncoding', False)
+
+# ---------------------------
 # Header image
 # ---------------------------
 st.image(
     "https://i.ytimg.com/vi/u2bg8OwB4Z0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&amp;rs=AOn4CLCqhObtNshXtK9_YbOZSWYuJ2lNUQ",
-    use_column_width=True
+    use_container_width=True
 )
 
 # ---------------------------
@@ -34,7 +39,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg","jpeg","png"]
 
 if uploaded_file is not None:
     # Display the uploaded image
-    st.image(uploaded_file, caption='Uploaded Image', use_column_width=True)
+    st.image(uploaded_file, caption='Uploaded Image', use_container_width=True)
 
     # Preprocess the image
     img = image.load_img(uploaded_file, target_size=(128,128))
